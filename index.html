@@ -351,7 +351,8 @@
 
     <script>
         // --- Core Application State ---
-        let API_URL = localStorage.getItem('API_URL') || '';
+        // Menggunakan kunci 'API_URL_TAMBAK_2' agar memori tidak bentrok dengan aplikasi pertama
+        let API_URL = localStorage.getItem('API_URL_TAMBAK_2') || '';
         let appData = { summary: {}, transactions: [] };
         let currentFilter = 'Semua';
         let isDarkMode = localStorage.getItem('darkMode') === 'true';
@@ -827,8 +828,11 @@
         function saveSettings() {
             const url = document.getElementById('api-url-input').value.trim();
             if (!url) { showToast("Peringatan", "URL tidak boleh kosong.", "warning"); return; }
-            localStorage.setItem('API_URL', url);
+            
+            // Simpan URL baru dengan kunci unik yang sama
+            localStorage.setItem('API_URL_TAMBAK_2', url);
             API_URL = url;
+            
             closeSettingsModal();
             showToast("Terhubung", "Sistem siap digunakan.", "success");
             fetchData();
