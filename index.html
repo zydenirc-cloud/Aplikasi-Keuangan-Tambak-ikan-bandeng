@@ -351,8 +351,8 @@
 
     <script>
         // --- Core Application State ---
-        // Menggunakan kunci 'API_URL_TAMBAK_2' agar memori tidak bentrok dengan aplikasi pertama
-        let API_URL = localStorage.getItem('API_URL_TAMBAK_2') || '';
+        // Menggunakan kunci 'KETAPANG_API_APP_2' agar memori 100% fresh dan tidak bentrok
+        let API_URL = localStorage.getItem('KETAPANG_API_APP_2') || '';
         let appData = { summary: {}, transactions: [] };
         let currentFilter = 'Semua';
         let isDarkMode = localStorage.getItem('darkMode') === 'true';
@@ -830,7 +830,7 @@
             if (!url) { showToast("Peringatan", "URL tidak boleh kosong.", "warning"); return; }
             
             // Simpan URL baru dengan kunci unik yang sama
-            localStorage.setItem('API_URL_TAMBAK_2', url);
+            localStorage.setItem('KETAPANG_API_APP_2', url);
             API_URL = url;
             
             closeSettingsModal();
